@@ -170,6 +170,37 @@ fun PantallaNoticias() {
         }
 
 
+        item {
+
+            Row(
+                Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+
+                CardPequena(listaNoticias[0], Modifier.weight(1f))
+                CardPequena(listaNoticias[1], Modifier.weight(1f))
+            }
+        }
+
+        item {
+
+            Row(
+                Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+
+                CardPequena(listaNoticias[2], Modifier.weight(1f))
+                CardPequena(listaNoticias[3], Modifier.weight(1f))
+            }
+        }
+
+        item {
+            Spacer(modifier = Modifier.height(16.dp))
+        }
+    }
+}
+
+
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun PreviewPantallaNoticias() {
