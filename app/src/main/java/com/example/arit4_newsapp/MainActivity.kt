@@ -85,6 +85,89 @@ fun PantallaNoticias() {
                 )
             )
         }
+        item {
+
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(20.dp),
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.weight(1f)
+                ) {
+
+                    Text(
+                        "Noticias",
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 24.sp,
+                        color = Color.Black,
+                        textAlign = TextAlign.Center
+                    )
+
+                    Box(
+                        Modifier
+                            .width(40.dp)
+                            .height(4.dp)
+                            .background(MiColorMorado)
+                    )
+                }
+
+                Text(
+                    "Eventos",
+                    color = Color.LightGray,
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.weight(1f),
+                    textAlign = TextAlign.Center
+                )
+
+                Text(
+                    "Clima",
+                    color = Color.LightGray,
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.weight(1f),
+                    textAlign = TextAlign.Center
+                )
+            }
+        }
+
+        item {
+
+            Text(
+                "Ultimas noticias",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.ExtraBold,
+                color = Color.Black,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Center
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+
+                items(listaNoticias) { noticia ->
+                    CardGrande(noticia)
+                }
+            }
+        }
+
+        item {
+
+            Text(
+                "Alrededor del mundo",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.ExtraBold,
+                color = Color.Black,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Center
+            )
+        }
 
 
 @Preview(showBackground = true, showSystemUi = true)
