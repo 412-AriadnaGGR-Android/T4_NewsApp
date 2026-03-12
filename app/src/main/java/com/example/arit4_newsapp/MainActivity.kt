@@ -244,6 +244,52 @@ fun CardGrande(noticia: Noticia) {
     }
 }
 
+@Composable
+fun CardPequena(noticia: Noticia, modifier: Modifier) {
+
+    Box(
+        modifier = modifier
+            .aspectRatio(0.75f)
+            .clip(RoundedCornerShape(24.dp))
+    ) {
+
+        Image(
+            painter = painterResource(id = noticia.imagen),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop
+        )
+
+        Surface(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth(),
+
+            color = Color(0xFFD9D9D9).copy(alpha = 0.9f),
+
+            shape = RoundedCornerShape(
+                topStart = 20.dp,
+                topEnd = 20.dp
+            )
+        ) {
+
+            Text(
+                text = noticia.titulo,
+                modifier = Modifier
+                    .padding(12.dp)
+                    .fillMaxWidth(),
+
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.Black,
+                maxLines = 3,
+                lineHeight = 16.sp,
+                textAlign = TextAlign.Center
+            )
+        }
+    }
+}
+
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun PreviewPantallaNoticias() {
