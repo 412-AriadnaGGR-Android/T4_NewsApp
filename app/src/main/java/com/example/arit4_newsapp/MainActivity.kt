@@ -200,6 +200,49 @@ fun PantallaNoticias() {
     }
 }
 
+@Composable
+fun CardGrande(noticia: Noticia) {
+
+    Box(
+        modifier = Modifier
+            .size(width = 300.dp, height = 180.dp)
+            .clip(RoundedCornerShape(32.dp))
+    ) {
+
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MiColorMorado.copy(alpha = 0.6f))
+        )
+
+        Column(
+            modifier = Modifier
+                .align(Alignment.Center)
+                .padding(20.dp),
+
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            Text(
+                text = noticia.titulo,
+                color = Color.White,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold,
+                maxLines = 3,
+                overflow = TextOverflow.Ellipsis,
+                textAlign = TextAlign.Center
+            )
+
+            Text(
+                text = noticia.fecha,
+                color = Color.White.copy(alpha = 0.8f),
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Medium,
+                textAlign = TextAlign.Center
+            )
+        }
+    }
+}
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
