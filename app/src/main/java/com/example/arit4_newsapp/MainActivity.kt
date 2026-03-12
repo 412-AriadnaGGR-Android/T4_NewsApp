@@ -44,6 +44,47 @@ class MainActivity : ComponentActivity() {
 }
 
 val MiColorMorado = Color(0xFF4A2EFF)
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun PantallaNoticias() {
+
+    val listaNoticias = listOf(
+        Noticia("El presidente de EUA no muestra signos de arrepentimiento", "febrero 08 - 2024", R.drawable.presidente_eua),
+        Noticia("Banarse en la piscina del desierto de Cleopatra", "febrero 09 - 2024", R.drawable.cleopatra_egipt),
+        Noticia("Gigantes tecnologicos e IA", "febrero 10 - 2024", R.drawable.inteligencia_artificial),
+        Noticia("El rover de Marte envia datos", "febrero 11 - 2024", R.drawable.robot_marte)
+    )
+
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = 20.dp, vertical = 10.dp),
+        verticalArrangement = Arrangement.spacedBy(24.dp)
+    ) {
+
+        item {
+
+            OutlinedTextField(
+                value = "",
+                onValueChange = {},
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(50.dp)),
+
+                placeholder = {
+                    Text(
+                        "Buscar",
+                        color = Color.Gray,
+                        textAlign = TextAlign.Center
+                    )
+                },
+
+                colors = OutlinedTextFieldDefaults.colors(
+                    unfocusedBorderColor = MiColorMorado,
+                    focusedBorderColor = MiColorMorado
+                )
+            )
+        }
 
 
 @Preview(showBackground = true, showSystemUi = true)
